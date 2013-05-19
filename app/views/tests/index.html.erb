@@ -1,0 +1,31 @@
+<%= link_to 'Add +', new_trial_test_path(@trial.id), :class => 'btn btn-primary pull-right' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Qestion</th>
+      <th>Answer</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.question %></td>
+        <td><%= test.answers %></td>
+        <td><%= test.qtype %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!-- <div class =".modal hide" id="view_modal_box" ></div>
+
+<script>
+ ($("a[data-toggle=modal]")).click(function() {
+    var target, url;
+    target = ($(this)).attr('data-target');
+    url = ($(this)).attr('href');
+    return ($(target)).load(url);
+  });
+</script> -->
