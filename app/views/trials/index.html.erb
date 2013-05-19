@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to 'Add +', new_trial_path, :class => 'btn btn-primary pull-right' %>
+  <h1 class="title">Trials</h1>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trials.each do |trial| %>
+    <tr>
+      <td><%= trial.name.humanize %></td>
+      <td><%= trial.description %></td>
+      <td>
+        <%= link_to 'Tests', trial_tests_path(trial.id) %>
+        <%= link_to 'Patients', "#" %>
+        <%= link_to 'vacancies', '#' %>
+        <%= link_to 'Delete', trial_path(trial),
+        :method => :delete,
+        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
