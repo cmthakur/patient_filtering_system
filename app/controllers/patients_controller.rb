@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
 
   def index
-    @patients = Patient.all
+    @patients = Patient.where(trial_id: params['trial_id'])
   end
 
   def new
@@ -10,7 +10,7 @@ class PatientsController < ApplicationController
 
   def create
     @trial = Trial.last
-    @patient = Patient.new(params['patient'])
+    @patient = @trial.patients.new(params['patient'])
     respond_to do |format|
       if @patient.save
         session['exams'] = [0]
@@ -25,6 +25,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find params["id"]
     @trial = Trial.find params["trial_id"]
     @exam = @trial.exams.where('id not in (?)', session['exams']).last
+    @progress = ((session['exams'].count-1)/@trial.exams.count.to_f)*100
   end
 
   def finalize_exam
@@ -38,7 +39,7 @@ class PatientsController < ApplicationController
     if is_more
       redirect_to take_exam_patient_path(params['patient_id'], {trial_id: exam.trial_id})
     else
-      session['exams'] = []
+      session['exams'] = [0]
       render :text => "The exam is over. Thank you."
     end
   end

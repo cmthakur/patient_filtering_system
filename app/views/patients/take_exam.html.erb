@@ -1,9 +1,21 @@
-
-<%= form_tag finalize_exam_patient_path(@exam.id, {patient_id: @patient.id}), :method => :post do %>
+<div class='header'>
+  <div class="title"> Answer The Following Question: </div>
+</div>
+<div class='examination'>
+  <%= form_tag finalize_exam_patient_path(@exam.id, {patient_id: @patient.id}), :method => :post, :class => "form-inline" do %>
 
   <%= label_tag @exam.question, nil, :class => 'small_label' %>
   <%= text_field_tag 'answer' %>
-  <br />
   <%= submit_tag(value = "next") %>
 
-<% end %>
+  <% end %>
+</div>
+<div class="progress progress-striped active">
+  <div class="bar" style="width: 0%;"></div>
+</div>
+
+<script>
+var progress = <%= @progress %>;
+console.log(progress);
+$('.bar').css('width', progress+'%');
+</script>

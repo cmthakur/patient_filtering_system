@@ -1,7 +1,9 @@
-<div class="page-header">
-  <%= link_to 'Add +', new_trial_path, :class => 'btn btn-primary pull-right' %>
-  <h1 class="title">Trials</h1>
+<div class='header'>
+  <div class="title"> Listing All Available Trials </div>
 </div>
+
+<%= link_to 'Add +', new_trial_path, :class => 'btn btn-primary pull-right' %>
+
 <table class="table">
   <thead>
     <tr>
@@ -17,7 +19,7 @@
       <td><%= trial.description %></td>
       <td>
         <%= link_to 'Exams', trial_exams_path(trial.id) %>
-        <%= link_to 'Patients', "#" %>
+        <%= link_to 'Patients', patients_path({trial_id: trial.id }) %>
         <%= link_to 'vacancies', '#' %>
         <%= link_to 'Delete', trial_path(trial),
         :method => :delete,
