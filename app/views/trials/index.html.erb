@@ -16,7 +16,7 @@
       <td><%= trial.name.humanize %></td>
       <td><%= trial.description %></td>
       <td>
-        <%= link_to 'Tests', trial_tests_path(trial.id) %>
+        <%= link_to 'Exams', trial_exams_path(trial.id) %>
         <%= link_to 'Patients', "#" %>
         <%= link_to 'vacancies', '#' %>
         <%= link_to 'Delete', trial_path(trial),

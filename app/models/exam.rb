@@ -1,6 +1,7 @@
-class Test < ActiveRecord::Base
+class Exam < ActiveRecord::Base
   attr_accessible :question, :answers, :type, :trial_id
   belongs_to :trial
+  has_many :patient_answers
 
   set_inheritance_column :ruby_type
 

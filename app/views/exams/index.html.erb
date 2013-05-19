@@ -1,4 +1,4 @@
-<%= link_to 'Add +', new_trial_test_path(@trial.id), :class => 'btn btn-primary pull-right' %>
+<%= link_to 'Add +', new_trial_exam_path(@trial.id), :class => 'btn btn-primary pull-right' %>
 
 <table class="table table-striped">
   <thead>
@@ -9,11 +9,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @tests.each do |test| %>
+    <% @exams.each do |exam| %>
       <tr>
-        <td><%= test.question %></td>
-        <td><%= test.answers %></td>
-        <td><%= test.qtype %></td>
+        <td><%= exam.question %></td>
+        <td><%= exam.answers %></td>
+        <td><%= exam.qtype %></td>
       </tr>
     <% end %>
   </tbody>

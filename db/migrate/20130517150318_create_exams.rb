@@ -1,6 +1,6 @@
-class CreateTests < ActiveRecord::Migration
+class CreateExams < ActiveRecord::Migration
   def change
-    create_table :tests do |t|
+    create_table :exams do |t|
 
       t.integer :id
       t.string :question,          :null => false

@@ -1,0 +1,9 @@
+
+<%= form_tag finalize_exam_patient_path(@exam.id, {patient_id: @patient.id}), :method => :post do %>
+
+  <%= label_tag @exam.question, nil, :class => 'small_label' %>
+  <%= text_field_tag 'answer' %>
+  <br />
+  <%= submit_tag(value = "next") %>
+
+<% end %>

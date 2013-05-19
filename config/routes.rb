@@ -1,9 +1,14 @@
 PatientFilteringSystem::Application.routes.draw do
   resources :trials do
-    resources :tests
+    resources :exams
   end
 
- resources :patients
+ resources :patients do
+  member do
+    get 'take_exam'
+    post 'finalize_exam'
+  end
+ end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
