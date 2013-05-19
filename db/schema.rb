@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130519040651) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.integer  "trial_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

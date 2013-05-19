@@ -14,6 +14,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :country
+      t.integer :trial_id
 
       t.timestamps
     end
