@@ -1,4 +1,10 @@
 PatientFilteringSystem::Application.routes.draw do
+  resources :trials do
+    resources :tests
+  end
+
+ resources :patients
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +54,7 @@ PatientFilteringSystem::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'trials#index'
 
   # See how all your routes lay out with "rake routes"
 
