@@ -1,0 +1,14 @@
+<%- flash.each do |name, msg| -%>
+  <% if !msg.blank? %>
+
+    <div class="wi_flash" id="flash_msg_hold">
+      <span id="wi_flash_<%=name%>"> <%= msg %> </span>
+    </div>
+
+    <%= content_tag :script, :type => "text/javascript" do -%>
+      $("#flash_msg_hold").animate({top:60},400 );
+      $(".wi_flash").fadeOut(5000);
+    <% end %>
+
+  <% end %>
+<%- end -%>

@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar top-bar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Patient Filtering System</a>
+      <ul class="nav nav-tabs pull-right">
+        <li class="active">
+          <%= link_to "Patient", new_patient_path %>
+        </li>
+        <li>
+          <%= link_to "Admin", trials_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-<%= yield %>
+ <%= render :partial => "layouts/flash_messages" %>
+
+  <%= yield %>
 
 </body>
 </html>
