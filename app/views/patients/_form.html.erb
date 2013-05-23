@@ -1,5 +1,12 @@
 <%= form_for @patient, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
+    <label class="control-label"> Select trial to apply:</label>
+    <div class="controls">
+      <%= select_tag "trial", options_from_collection_for_select(@trials, "id", "name") %>
+    </div>
+  </div>
+
+  <div class="control-group">
     <%= f.label :first_name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :fname, :class => 'text_field' %>

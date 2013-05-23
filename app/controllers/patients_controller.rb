@@ -5,11 +5,16 @@ class PatientsController < ApplicationController
   end
 
   def new
-    @patient = Patient.new
+    @trials = Trial.all
+    if @trials.present?
+      @patient = Patient.new
+    else
+      render :text => "Sorry, no trials available. Try latter."
+    end
   end
 
   def create
-    @trial = Trial.last
+    @trial = Trial.find params['trial']
     @patient = @trial.patients.new(params['patient'])
     respond_to do |format|
       if @patient.save
